@@ -10,6 +10,7 @@ include:是将路由信息分发给index的urls.py处理
 
 urlpatterns = [
     # 指向内置Admin后台系统的路由文件sites.py
+    # admin代表127.0.0.1:8000/admin
     path('admin/', admin.site.urls),
     # 指向index的路由文件urls.py
     path('',include('index.urls'))

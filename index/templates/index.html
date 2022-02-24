@@ -3,14 +3,43 @@
 <div class="hello-form">
     <form action="" method="post" class="form" role="form">
     <input name="csrfmiddlewaretoken" type="hidden" value="{{ csrf_token }}">
+    <!--新增网页显示文字-->
+    <div>
+        <label>亲爱的来宾您好，请知悉以下进入XX的拜访资讯。
+进入本公司需签署「访客规范暨资讯保护」，感谢您。</label>
+    </div>
+    <br>
+
     <div class="form-group required">
         <label class="form-control-label" for="name">名称</label>
         <input class="form-control" name="name" type="text">
     </div>
     <div class="form-group required">
-        <label class="form-control-label" for="body">信息内容</label>
+        <label class="form-control-label" for="body">联系方式</label>
         <textarea class="form-control" name="content"></textarea>
     </div>
+    <br>
+
+    <!--新增单选框，如何和单选框连接到数据库-->
+    <div class="form-group required">
+        <label>21天内是否有接触高危地区</label>
+        <input checked="checked" name="three_weeks" type="radio" value="Y">Y
+        <input name="three_weeks" type="radio" value="N">N
+    </div>
+    <!--新增单选框，如何和单选框连接到数据库-->
+    <div class="form-group required">
+        <label>14天内是否有接触高危地区</label>
+        <input checked="checked" name="two_weeks" type="radio" value="Y">Y
+        <input name="two_weeks" type="radio" value="N">N
+    </div>
+    <!--新增单选框，如何和单选框连接到数据库-->
+    <div class="form-group required">
+        <label>7天内是否有接触高危地区</label>
+        <input checked="checked" name="a_week" type="radio" value="Y">Y
+        <input name="a_week" type="radio" value="N">N
+    </div>
+    <br>
+
     <input class="btn btn-primary" type="submit" value="提交">
     </form>
 </div>
@@ -26,6 +55,9 @@
             <small data-toggle="tooltip" data-placement="top" data-timestamp="{{message.timestamp}}" data-delay="500">{{message.timestamp}}</small>
         </div>
         <p class="mb-1">{{message.content}}</p>
+        <p class="mb-1">{{message.three_weeks}}</p>
+        <p class="mb-1">{{message.two_weeks}}</p>
+        <p class="mb-1">{{message.a_week}}</p>
     </a>
    {% endfor %}
 </div>

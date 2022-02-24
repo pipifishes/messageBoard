@@ -6,3 +6,4 @@ class MessageModeForm(forms.ModelForm):
         # 绑定模型
         model = Message
         fields = '__all__'
+

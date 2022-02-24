@@ -44,8 +44,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 默认启动session功能，用于会话控制
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 新增中间件LocaleMiddleware
+    # 新增中间件LocaleMiddleware，目的是使后台管理网址是中文
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,7 +100,7 @@ WSGI_APPLICATION = 'messageboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_db',
+        'NAME': 'visitor_information',
         'USER': 'root',
         'PASSWORD': 'GnbajxO@4869',
         'HOST': '127.0.0.1',

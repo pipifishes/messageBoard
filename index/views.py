@@ -13,9 +13,13 @@ from django.shortcuts import render,redirect
 from .models import Message
 from .form import MessageModeForm
 def newview(request):
-    message = Message.objects.all().order_by('-id')
+    messages = Message.objects.all().order_by('-id')
     if request.method == 'POST':
         form = MessageModeForm(request.POST)
+        # 打印信息，查看过程
+        print(form)
+        print(form.is_valid())
+        print(request.POST.get("three_weeks"))
         if form.is_valid():
             form.save()
         return redirect('/')
